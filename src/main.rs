@@ -122,3 +122,19 @@ fn conway_suite(nb: u32) {
 
     })
 }
+
+#[cfg(test)]
+mod conway_suite_test {
+    use crate::next_line;
+
+    #[test]
+    fn should_pass() {
+        assert_eq!(String::from("1 1"), next_line(String::from("1")));
+        assert_eq!(String::from("2 1"), next_line(String::from("1 1")));
+        assert_eq!(String::from("1 2 1 1"), next_line(String::from("2 1")));
+        assert_eq!(String::from("1 1 1 2 2 1"), next_line(String::from("1 2 1 1")));
+        assert_eq!(String::from("3 1 2 2 1 1"), next_line(String::from("1 1 1 2 2 1")));
+        assert_eq!(String::from("1 3 1 1 2 2 2 1"), next_line(String::from("3 1 2 2 1 1")));
+    }
+
+}
